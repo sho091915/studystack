@@ -1,6 +1,6 @@
 package practice
 
-object Frame{
+object A086{
   def main(args: Array[String]){
     if (sys.env.getOrElse("TEST", "")=="1"){
       println(test())
@@ -11,10 +11,16 @@ object Frame{
   }
 
   def solve(input:String):String={
-    input.split(" ").map(_.toInt).sum.toString()
+    val a = input.split(" ").map(_.toInt).product
+    if (a % 2 == 0) {
+      "Even"
+    }else {
+      "Odd"
+    }
   }
 
-  val tests=List("""3 9""" -> """12""")
+  val tests=List("""3 4""" -> """Even""",
+    """1 21""" -> """Odd""")
 
   def test():String= {
     return tests.map{case (i,o)=>(i.trim(),o.trim())}

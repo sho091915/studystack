@@ -1,6 +1,6 @@
 package practice
 
-object Frame{
+object A081{
   def main(args: Array[String]){
     if (sys.env.getOrElse("TEST", "")=="1"){
       println(test())
@@ -11,10 +11,11 @@ object Frame{
   }
 
   def solve(input:String):String={
-    input.split(" ").map(_.toInt).sum.toString()
+    input.split("").count(_ == "1").toString
   }
 
-  val tests=List("""3 9""" -> """12""")
+  val tests=List("""101""" -> """2""",
+    """000""" -> """0""")
 
   def test():String= {
     return tests.map{case (i,o)=>(i.trim(),o.trim())}
