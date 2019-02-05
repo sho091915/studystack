@@ -17,9 +17,7 @@ int main(){
   int dsum;
   // 各桁の合計が範囲以内の数値を足した合計
   int sum=0;
-  if(scanf("%d", &n) == 0) return 1;
-  if(scanf("%d", &a) == 0) return 1;
-  if(scanf("%d", &b) == 0) return 1;
+  if(scanf("%d%d%d", &n, &a, &b) == 0) return 1;
 
   for(i=1;i<=n;i++){
     dsum=0;
