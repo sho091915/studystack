@@ -4,6 +4,8 @@ class Register{
   public static void main(String[] args) {
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
     List<Kaiin> kaiinAll = new ArrayList<>();//データベースみたいな
+    boolean isInclude = false;
+
     kaiinAll.add(kaiinAdd(1,"山田太郎"));
     kaiinAll.add(kaiinAdd(2,"鈴木花子"));
     kaiinAll.add(kaiinAdd(3,"佐藤琢磨"));
@@ -11,9 +13,11 @@ class Register{
     for(Kaiin k:kaiinAll){
       if(k.getId() == input){
         System.out.printf("%sさんの会員IDは%04dです。登録: %s\n", k.getName(), k.getId(), sdf.format(k.getDate()));
+        isInclude = true;
         // System.out.println(k.getName()+"さんの会員IDは"+k.getId()+"です。"+"登録："+sdf.format(k.getDate()));
       }
     }
+    if(!isInclude)System.out.println("会員に含まれていません");
   }
   public static Kaiin kaiinAdd(int id,String name){
     Kaiin k = new Kaiin();
