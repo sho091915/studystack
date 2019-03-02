@@ -3,12 +3,14 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>Chat Room</title>
+    <title>とぅーどぅーりすと</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-    <textarea id="chat-log" cols="100" rows="20"></textarea><br/>
-    <input id="chat-message-input" type="text" size="100"/><br/>
-    <input id="chat-message-submit" type="button" value="Send"/>
+    <h1>とぅーどぅーりすと</h1>
+    <ul></ul>
+    たすく：<input id="chat-message-input" type="text"/>
+    <input id="chat-message-submit" type="button" value="ついか"/>
 </body>
 <script>
     // var roomName = "todo";
@@ -20,7 +22,8 @@
     chatSocket.onmessage = function(e) {
         var data = JSON.parse(e.data);
         var message = data['message'];
-        document.querySelector('#chat-log').value += (message + '\n');
+        $("ul").append("<li>" + message + "</li>")
+        // document.querySelector('#chat-log').value += (message + '\n');
     };
 
     chatSocket.onclose = function(e) {
