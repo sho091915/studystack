@@ -2,7 +2,7 @@
 from channels.generic.websocket import AsyncWebsocketConsumer
 import json
 
-class ChatConsumer(AsyncWebsocketConsumer):
+class ToDoConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         # self.room_name = self.scope['url_route']['kwargs']['room_name']
         self.room_group_name = 'todo'
